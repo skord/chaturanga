@@ -1,0 +1,49 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "timeago": {},
+      "fittext": {},
+      "gravatar": {},
+      "parsleyjs": {},
+      "smart-collections": {}
+    },
+    "packages": {
+      "timeago": {
+        "git": "https://github.com/BeDifferential/timeago.git",
+        "tag": "v0.0.2",
+        "commit": "1f2afcbfaa37f97c4a966058388d85c6ada3fe8f"
+      },
+      "fittext": {
+        "git": "https://github.com/dbubs/meteor-fittext.git",
+        "tag": "v1.2.0.2",
+        "commit": "025eb22b0b686ae8b6c03a8c8ef13e291084307b"
+      },
+      "gravatar": {
+        "git": "https://github.com/tmeasday/meteor-gravatar.git",
+        "tag": "v0.0.4",
+        "commit": "d1052ff4401725c23fb199c0e0a36e29b926bc22"
+      },
+      "parsleyjs": {
+        "git": "https://github.com/nate-strauser/meteor-parsleyjs.git",
+        "tag": "v1.1.7",
+        "commit": "035a1e56a78e50369686b7e281aa71e3daf3729a"
+      },
+      "smart-collections": {
+        "git": "https://github.com/arunoda/meteor-smart-collections.git",
+        "tag": "v0.3.22",
+        "commit": "34710960d08dddc206abefbb59dc17c93735a721"
+      },
+      "crypto-md5": {
+        "git": "https://github.com/tmeasday/meteor-crypto-md5.git",
+        "tag": "v0.0.2",
+        "commit": "a943bea4cffeac9a14c2825dfe57d32b9d677e6f"
+      },
+      "crypto-base": {
+        "git": "https://github.com/tmeasday/meteor-crypto-base.git",
+        "tag": "v0.0.3",
+        "commit": "fdc0b7b3d24e2e31c5c95beddafe890ffbaafd42"
+      }
+    }
+  }
+}

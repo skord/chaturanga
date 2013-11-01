@@ -1,0 +1,13 @@
+<template name="message">
+
+  <li>
+    {{#if showGravatar}}
+      <img class="gravatar" src="{{gravatar}}" />
+    {{/if}}
+
+    <div class="email">{{email}}</div>
+    <p>{{{parsedText}}}</p>
+    <time class="timeago" datetime="{{time}}">{{time}}</time>
+  </li>
+
+</template>

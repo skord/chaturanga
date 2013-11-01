@@ -1,0 +1,15 @@
+<template name="log">
+
+  <ul id="messages">
+    {{#if messagesPresent}}
+      {{#each messages}}
+        {{> message}}
+      {{/each}}
+    {{else}}
+      <li id="no-messages">No Messages</li>
+    {{/if}}
+  </ul>
+
+  {{> controls}}
+
+</template>
