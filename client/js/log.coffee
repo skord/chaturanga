@@ -8,9 +8,6 @@ Template.log.rendered = ->
 Template.log.messagesPresent = ->
   @Messages.find().count() > 0
 
-Template.log.gravatarsHidden = ->
-  Session.equals 'showGravatars', false
-
 Template.log.events "click #clear": ->
   Meteor.call 'removeAllMessages'
 

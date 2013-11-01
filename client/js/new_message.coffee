@@ -1,5 +1,6 @@
 Template.new_message.events "keypress input": (e) ->
   if e.keyCode is 13
+    e.preventDefault()
     box = $(e.target)
     text = box.val()
 

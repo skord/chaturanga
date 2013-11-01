@@ -1,8 +1,8 @@
 Template.controls.events "click #show-gravatars": ->
-  Session.set("showGravatars", true)
+  Session.set "showGravatars", true
 
 Template.controls.events "click #hide-gravatars": ->
-  Session.set("showGravatars", false)
+  Session.set "showGravatars", false
 
 Template.controls.gravatarsHidden = ->
   Session.equals 'showGravatars', false

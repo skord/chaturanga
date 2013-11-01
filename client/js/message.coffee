@@ -1,5 +1,5 @@
 Template.message.showGravatar = ->
-  Session.equals('showGravatars', true)
+  Session.equals 'showGravatars', true
 
 Template.message.helpers
   parsedText: ->
