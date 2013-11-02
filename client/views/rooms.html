@@ -1,0 +1,11 @@
+<template name="rooms">
+  <div id="rooms" class="dropdown">
+    <a href="#" id="toggle-rooms">Rooms</a>
+
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+      {{#each rooms}}
+        <li><a tabindex="-1" href="#" data-id="{{_id}}">{{name}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

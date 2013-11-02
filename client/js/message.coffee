@@ -1,5 +1,5 @@
 Template.message.showGravatar = ->
-  Session.equals 'showGravatars', true
+  Meteor.user().profile.showGravatars == true
 
 Template.message.helpers
   parsedText: ->

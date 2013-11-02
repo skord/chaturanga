@@ -2,7 +2,7 @@ Template.log.messages = ->
   @Messages.find()
 
 Template.log.rendered = ->
-  $('ul#messages').scrollTop($('ul#messages')[0].scrollHeight)
+  $('ul#log').scrollTop($('ul#log')[0].scrollHeight)
   $("time.timeago").timeago()
 
 Template.log.messagesPresent = ->

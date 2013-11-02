@@ -1,22 +1,24 @@
 <template name="controls">
   <p>
-    <button class="btn btn-danger btn-mini" id="clear">
-      <i class="icon-trash icon-white"></i>
-      Clear Log
-    </button>
+    {{#if messagesPresent}}
+      <button class="btn btn-danger btn-mini" id="clear">
+        <i class="icon-trash icon-white"></i>
+        Clear Log
+      </button>
 
-    {{#if gravatarsHidden}}
-      <button class="btn btn-warning btn-mini" id="show-gravatars">
-        <i class="icon-search icon-white"></i>
-        Show Gravatars
-      </button>
-    {{else}}
-      <button class="btn btn-warning btn-mini" id="hide-gravatars">
-        <i class="icon-search icon-white"></i>
-        Hide Gravatars
-      </button>
+      {{#if gravatarsHidden}}
+        <button class="btn btn-warning btn-mini" id="show-gravatars">
+          <i class="icon-adjust icon-white"></i>
+          Show Gravatars
+        </button>
+      {{else}}
+        <button class="btn btn-warning btn-mini" id="hide-gravatars">
+          <i class="icon-adjust icon-white"></i>
+          Hide Gravatars
+        </button>
+      {{/if}}
+
+      <span id="count">{{count}}</span>
     {{/if}}
-
-    <span id="count">{{count}}</span>
   </p>
 </template>

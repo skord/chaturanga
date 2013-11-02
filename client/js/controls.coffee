@@ -1,11 +1,14 @@
 Template.controls.events "click #show-gravatars": ->
-  Session.set "showGravatars", true
+  Meteor.users.update({_id: Meteor.userId()}, {$set:{'profile.showGravatars': true}})
 
 Template.controls.events "click #hide-gravatars": ->
-  Session.set "showGravatars", false
+  Meteor.users.update({_id: Meteor.userId()}, {$set:{'profile.showGravatars': false}})
 
 Template.controls.gravatarsHidden = ->
-  Session.equals 'showGravatars', false
+  Meteor.user().profile.showGravatars == false
+
+Template.controls.messagesPresent = ->
+  @Messages.find().count() > 0
 
 Template.controls.count = ->
   count = @Messages.find().count()
