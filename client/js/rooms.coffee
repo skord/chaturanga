@@ -5,7 +5,8 @@ Template.rooms.events 'click a#toggle-rooms': (e) ->
 
 Template.rooms.events 'click ul.dropdown-menu a': (e) ->
   e.preventDefault()
-  console.log $(e.target).data('id')
+  Session.set 'currentRoomId', $(e.target).data('id')
+  $('ul.dropdown-menu').toggle()
 
 Template.rooms.rooms = ->
   Rooms.find()
