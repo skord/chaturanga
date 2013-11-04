@@ -1,0 +1,11 @@
+<template name="main">
+  {{> rooms}}
+  {{loginButtons}}
+
+  <h1>Chattr</h1>
+
+  {{#if roomSelected}}
+    {{> log}}
+    {{> new_message}}
+  {{/if}}
+</template>
