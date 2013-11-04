@@ -10,3 +10,8 @@ Template.rooms.events 'click ul.dropdown-menu a': (e) ->
 
 Template.rooms.rooms = ->
   Rooms.find()
+
+Template.rooms.currentRoomName = ->
+  if Session.get('currentRoomId')
+    Rooms.findOne({_id: Session.get('currentRoomId')}).name
+

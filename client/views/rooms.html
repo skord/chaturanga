@@ -1,6 +1,7 @@
 <template name="rooms">
   <div id="rooms" class="dropdown">
     <a href="#" id="toggle-rooms">Rooms</a>
+    <span class="name">{{currentRoomName}}</span>
 
     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
       {{#each rooms}}
