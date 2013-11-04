@@ -10,5 +10,5 @@ Meteor.users.allow
 
 Meteor.startup ->
   Meteor.methods
-    removeAllMessages: ->
-      Messages.remove({})
+    removeAllMessages: (roomId) ->
+      Messages.remove({roomId: roomId})
