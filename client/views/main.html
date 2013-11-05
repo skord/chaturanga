@@ -3,12 +3,14 @@
 
   <h1>༺Chattr༻</h1>
 
-  {{> rooms}}
+  {{#if currentUser}}
+    {{> rooms}}
 
-  {{#if currentRoomName}}
-    {{> log}}
-    {{> new_message}}
-    {{> controls}}
+    {{#if currentRoomName}}
+      {{> log}}
+      {{> new_message}}
+      {{> controls}}
+    {{/if}}
   {{/if}}
 
 </template>

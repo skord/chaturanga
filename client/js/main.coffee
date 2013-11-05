@@ -3,7 +3,7 @@ Template.main.roomSelected = ->
 
 Template.main.currentRoomName = ->
   roomId = Meteor.user().profile.lastRoomId
-  Rooms.findOne({_id: roomId}).name
+  Rooms.findOne({_id: roomId}).name if roomId
 
 Template.main.currentRoom = ->
   roomId = Meteor.user().profile.lastRoomId
