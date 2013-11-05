@@ -3,4 +3,4 @@ Template.message.showGravatar = ->
 
 Template.message.helpers
   parsedText: ->
-    this.text.replace /(.*)(http:\/\/.*\.(gif|jpg|png|jpeg))(.*)/, "$1<img src='$2' />$4"
+    this.text.replace /(http:\/\/.*\.\w{3})/, "<a href='$1' target='_blank'>$1</a>"
