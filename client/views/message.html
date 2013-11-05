@@ -6,7 +6,15 @@
     {{/if}}
 
     <div class="email">{{email}}</div>
-    <time class="timeago" datetime="{{time}}">{{time}}</time>
+
+    <div class="top-right">
+      <time class="timeago" datetime="{{time}}">{{time}}</time>
+
+      {{#if isDeletable}}
+        <a href="#" class="delete" data-id="{{_id}}">⦻</a>
+      {{/if}}
+    </div>
+
     <p>{{{parsedText}}}</p>
   </li>
 

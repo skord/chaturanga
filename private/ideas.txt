@@ -1,0 +1,7 @@
+Infinite history via scrolling
+Ability to CRUD rooms
+Ability to set User as Admin
+Only allow Admins to clear the log
+Scope rooms by Team
+Team CRUD
+Add invites
