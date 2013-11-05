@@ -1,16 +1,21 @@
 body
   color: #333
   font: 14px/1.5 Arial
-  background: url(/images/fabric.jpg) top left repeat
+  background: #E1DFD9
 
 h1
-  color: #666
+  color: #6A6967
   font-weight: bold
   font-size: 5em
   text-transform: uppercase
+  text-align: center
 
 p
   margin-bottom: 1.5em
+
+a
+  text-decoration: none !important
+  color: crimson
 
 ul#log
   width: 100%
@@ -18,16 +23,18 @@ ul#log
   overflow: scroll
   margin-bottom: 1.5em
   border-radius: 10px
+  background: url(/images/fabric.jpg) top left repeat
+  border: 1px solid #DDD
 
   li
     padding: 6px
     border-bottom: 1px solid #DDD
 
     &:nth-child(even)
-      background: whitesmoke
+      background: white
 
     &:nth-child(odd)
-      background: white
+      background: whitesmoke
 
     &#no-messages
       font-weight: bold
@@ -37,6 +44,7 @@ ul#log
       line-height: 788px
       border-bottom-width: 0
       background: none
+      text-shadow: rgba(#000, 0.3) 0 2px 0
 
     time
       float: right
@@ -61,7 +69,9 @@ ul#log
 
 input[type="text"]
   padding: 6px
-  width: 948px
+  width: 1158px
+  color: #FFF
+  background: url(/images/fabric.jpg) top left repeat
 
   &.parsley-error
     border-color: #b94a48
@@ -72,12 +82,7 @@ input[type="text"]
 strong
   font-weight: bold
 
-.container
-  width: 960px
-  margin: auto
-
 span#count
-  color: #DDD
   font-style: italic
   font-size: 12px
   float: right
@@ -86,14 +91,7 @@ span#count
   float: right
   margin-top: 1em
 
-  a
-    text-decoration: none !important
-    color: crimson
-
 #rooms
-  a
-    color: crimson
-
-  span.name
-    color: white
+  display: inline-block
+  margin-top: 1em
 
