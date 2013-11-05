@@ -1,12 +1,14 @@
 <template name="main">
-  {{> rooms}}
   {{loginButtons}}
 
   <h1>༺Chattr༻</h1>
 
-  {{#if roomSelected}}
+  {{> rooms}}
+
+  {{#if currentRoomName}}
     {{> log}}
     {{> new_message}}
     {{> controls}}
   {{/if}}
+
 </template>

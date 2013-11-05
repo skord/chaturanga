@@ -8,7 +8,6 @@ h1
   font-weight: bold
   font-size: 5em
   text-transform: uppercase
-  text-align: center
 
 p
   margin-bottom: 1.5em
@@ -21,7 +20,7 @@ ul#log
   width: 100%
   height: 800px
   overflow: scroll
-  margin-bottom: 1.5em
+  margin-bottom: 0.5em
   border-radius: 10px
   background: url(/images/fabric.jpg) top left repeat
   border: 1px solid #DDD
@@ -68,10 +67,12 @@ ul#log
       margin-bottom: 0
 
 input[type="text"]
-  padding: 6px
-  width: 1158px
+  box-sizing: border-box
+  padding: 16px
+  width: 100%
   color: #FFF
   background: url(/images/fabric.jpg) top left repeat
+  border-radius: 10px
 
   &.parsley-error
     border-color: #b94a48
@@ -94,4 +95,13 @@ span#count
 #rooms
   display: inline-block
   margin-top: 1em
+
+ul.nav-pills
+  li
+    a
+      color: #6A6967
+
+  li.active
+    a
+      background: #6A6967
 

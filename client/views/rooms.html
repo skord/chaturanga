@@ -1,18 +1,17 @@
 <template name="rooms">
-  <div id="rooms" class="dropdown">
 
-    {{#if currentRoomName}}
-      <span class="name">You're in {{currentRoomName}}</span>
-      |
-      <a href="#" id="leave-room">Leave this room</a>
-      |
-      <a href="#" id="toggle-rooms">All Rooms</a>
-    {{/if}}
+  <ul class="nav nav-pills">
+    {{#each rooms}}
+      {{#if isActive}}
+        <li class="active">
+      {{else}}
+        <li>
+      {{/if}}
 
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-      {{#each rooms}}
-        <li><a tabindex="-1" href="#" data-id="{{_id}}">{{name}}</a></li>
-      {{/each}}
-    </ul>
-  </div>
+        <a href="#" data-id="{{_id}}">{{name}}</a>
+      </li>
+
+    {{/each}}
+  </ul>
+
 </template>
