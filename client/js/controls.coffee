@@ -8,8 +8,10 @@ Template.controls.gravatarsHidden = ->
   Meteor.user().profile.showGravatars == false
 
 Template.controls.messagesPresent = ->
-  @Messages.find().count() > 0
+  roomId = Meteor.user().profile.lastRoomId
+  @Messages.find({roomId: roomId}).count() > 0
 
 Template.controls.count = ->
-  count = @Messages.find().count()
+  roomId = Meteor.user().profile.lastRoomId
+  count = @Messages.find({roomId: roomId}).count()
   "#{count} messages"

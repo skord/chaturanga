@@ -10,7 +10,7 @@ Template.new_message.events "keypress input": (e) ->
       email    = Meteor.user().emails[0].address
       time     = new Date().toISOString()
       gravatar = Gravatar.imageUrl(email)
-      roomId   = Session.get('currentRoomId')
+      roomId   = Meteor.user().profile.lastRoomId
 
       Messages.insert({
         email:    email,

@@ -2,7 +2,8 @@ Meteor.publish "rooms", ->
   Rooms.find()
 
 Meteor.publish "messages", ->
-  Messages.find()
+  roomId = Meteor.user().profile.lastRoomId
+  Messages.find({roomId: roomId})
 
 Meteor.users.allow
   update: (userId, docs, fields, modifier) ->
