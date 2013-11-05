@@ -1,4 +1,5 @@
 Meteor.subscribe('rooms')
 
 Deps.autorun ->
-  Meteor.subscribe("messages", {roomId: Session.get("currentRoomId")})
+  roomId = Meteor.user().profile.lastRoomId
+  Meteor.subscribe("messages", roomId)
