@@ -1,13 +1,16 @@
 Template.log.messages = ->
-  @Messages.find({roomId: Session.get('currentRoomId')})
+  roomId = Meteor.user().profile.lastRoomId
+  @Messages.find({roomId: roomId})
 
 Template.log.rendered = ->
   $("time.timeago").timeago()
   $('ul#log').scrollTop($('ul#log')[0].scrollHeight)
 
 Template.log.messagesPresent = ->
-  @Messages.find({roomId: Session.get('currentRoomId')}).count() > 0
+  roomId = Meteor.user().profile.lastRoomId
+  @Messages.find({roomId: roomId}).count() > 0
 
 Template.log.events "click #clear": ->
-  Meteor.call 'removeAllMessages', Session.get('currentRoomId')
+  roomId = Meteor.user().profile.lastRoomId
+  Meteor.call 'removeAllMessages', roomId
 

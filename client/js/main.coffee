@@ -1,2 +1,2 @@
 Template.main.roomSelected = ->
-  Meteor.user() && Session.get('currentRoomId')
+  Meteor.user() && Meteor.user().profile.lastRoomId
