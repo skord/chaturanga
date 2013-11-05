@@ -1,3 +1,5 @@
+Show who is currently in the room
+Show new message counts in inactive rooms
 Infinite history via scrolling
 Ability to CRUD rooms
 Ability to set User as Admin

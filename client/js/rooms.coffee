@@ -8,4 +8,5 @@ Template.rooms.rooms = ->
 
 Template.rooms.helpers
   isActive: ->
-    this._id is Meteor.user().profile.lastRoomId
+    if Meteor.user().profile
+      this._id is Meteor.user().profile.lastRoomId
