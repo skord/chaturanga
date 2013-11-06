@@ -12,3 +12,10 @@ Meteor.startup ->
   Meteor.methods
     removeAllMessages: (roomId) ->
       Messages.remove({roomId: roomId})
+
+    setAllLastRoomId: (roomId) ->
+      Meteor.users.update({}, {$set: {'profile.lastRoomId': roomId}}, {multi: true})
+
+  if Rooms.find().count() is 0
+    id = Rooms.insert({name: "Watercooler"})
+    Meteor.call 'setAllLastRoomId', id

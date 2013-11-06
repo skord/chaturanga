@@ -7,3 +7,6 @@ Only allow Admins to clear the log
 Scope rooms by Team
 Team CRUD
 Add invites
+Private messages
+Mongo IDs in the collection
+Default rooms
