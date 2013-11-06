@@ -1,13 +1,13 @@
 Meteor.publish "rooms", ->
-  Rooms.find()
+  Rooms.find({}, {sort: "name"})
 
 Meteor.publish "rosters", (roomId) ->
   check roomId, String
-  Rosters.find({roomId: roomId})
+  Rosters.find({roomId: roomId}, {sort: "email"})
 
 Meteor.publish "messages", (roomId) ->
   check roomId, String
-  [Rooms.find({_id: roomId}), Messages.find({roomId: roomId})]
+  [Rooms.find({_id: roomId}), Messages.find({roomId: roomId}, {sort: "time"})]
 
 Meteor.publish "last_in_room", (roomId, userId) ->
   check userId, String

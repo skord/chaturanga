@@ -6,3 +6,7 @@ Scope rooms by Team
 Team CRUD
 Add invites
 Private messages
+
+
+Organization > Team > Room > Message
+             > Invites
