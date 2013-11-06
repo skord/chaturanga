@@ -5,7 +5,11 @@
       {{#if isActive}}
         <li class="active">
       {{else}}
-        <li>
+        {{#if hasNewMessages}}
+          <li class="new-messages">
+        {{else}}
+          <li>
+        {{/if}}
       {{/if}}
 
         <a href="#" data-id="{{_id}}">{{name}}</a>

@@ -1,4 +1,3 @@
-Show new message counts in inactive rooms
 Infinite history via scrolling (http://stackoverflow.com/questions/15324350/how-to-make-meteor-reactive-on-sub-items-but-not-parent)
 Ability to CUD rooms
 Ability to set User as Admin

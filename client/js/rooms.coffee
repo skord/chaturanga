@@ -6,6 +6,13 @@ Template.rooms.events 'click .nav-pills li': (e) ->
 Template.rooms.rooms = ->
   Rooms.find()
 
+Template.rooms.hasNewMessages = ->
+  userId     = Meteor.userId()
+  lastInRoom = LastInRoom.findOne({userId: userId, roomId: this._id})
+
+  if lastInRoom
+    this.lastMessage > lastInRoom.time
+
 Template.rooms.helpers
   isActive: ->
     if Meteor.user().profile
