@@ -6,3 +6,6 @@ Deps.autorun ->
     Meteor.subscribe "messages", roomId
     Meteor.subscribe "rosters", roomId
 
+    Meteor.setInterval ->
+      Meteor.call 'keepalive', Meteor.userId()
+    , 5000

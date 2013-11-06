@@ -12,6 +12,11 @@ Meteor.publish "messages", (roomId) ->
 Meteor.users.allow
   update: (userId, docs, fields, modifier) -> true
 
+Meteor.setInterval ->
+  now = new Date().getTime()
+  Rosters.remove({lastSeen: {$lt: (now - 10 * 1000)}})
+, 10000
+
 Meteor.startup ->
   Meteor.methods
     removeAllMessages: (roomId) ->
@@ -21,13 +26,19 @@ Meteor.startup ->
       Meteor.users.update({}, {$set: {'profile.lastRoomId': roomId}}, {multi: true})
 
     addUserToRoster: (roomId) ->
-      email = Meteor.user().emails[0].address
-      Meteor.users.update({_id: Meteor.userId()}, {$set:{'profile.lastRoomId': roomId}})
+      email  = Meteor.user().emails[0].address
+      userId = Meteor.userId()
+      time   = new Date().getTime()
 
-      Rosters.remove({userId: Meteor.userId()})
-      Rosters.insert({roomId: roomId, userId: Meteor.userId(), name: email})
+      Meteor.users.update({_id: userId}, {$set:{'profile.lastRoomId': roomId}})
 
-  if Rooms.find().count() is 0
+      Rosters.remove({userId: userId})
+      Rosters.insert({roomId: roomId, userId: userId, email: email, lastSeen: time})
+
+    keepalive: (userId) ->
+      Rosters.update({userId: userId}, {$set: {lastSeen: (new Date()).getTime()}})
+
+  unless Rooms.findOne()
     id = Rooms.insert({name: "Watercooler"})
     Rooms.insert({name: "Misc"})
     Meteor.call 'setAllLastRoomId', id
