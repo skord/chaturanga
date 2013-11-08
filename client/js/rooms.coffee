@@ -9,13 +9,18 @@ Template.rooms.events
     a = $(e.target)
     a.attr('contenteditable', true)
 
-  'blur .nav-pills li a': (e) ->
-    e.preventDefault()
-    a      = $(e.target)
-    roomId = a.data('id')
-    name   = a.text()
-    a.attr('contenteditable', false)
-    Rooms.update({_id: roomId}, {$set: {name: name}})
+  'keypress .nav-pills li a': (e) ->
+    if e.keyCode is 13
+      e.preventDefault()
+      a      = $(e.target)
+      roomId = a.data('id')
+      name   = a.text()
+      a.attr('contenteditable', false)
+
+      if name
+        Rooms.update({_id: roomId}, {$set: {name: name}})
+      else
+        a.text('New Room')
 
 Template.rooms.rooms = ->
   Rooms.find()

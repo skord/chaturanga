@@ -6,6 +6,4 @@ Ideas:
 Bugs:
   Creating and/or renaming a room doubles up the roster
   Creating the default rooms -- who is the owner? Chicken / Egg
-  Don't allow blank room names
   Make editing room names more evident
-
