@@ -1,6 +1,6 @@
+Ability to set User as Owner
 Ability to CUD rooms
-Ability to set User as Admin
-Only allow Admins to clear the log
+Only allow Owners to clear the log
 Scope rooms by invitees / owner
 Add invites
 Private messages

@@ -1,0 +1,50 @@
+<template name="options">
+
+  <div id="options-area" class="dropdown">
+    <a href="#" id="options-toggle">Options</a>
+
+    <ul id="options-menu" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+
+      {{#if gravatarsHidden}}
+        <li>
+          <a tabindex="-1" href="#" id="show-gravatars">
+            <i class="icon-adjust"></i>
+            Show Gravatars
+          </a>
+        </li>
+      {{else}}
+        <li>
+          <a tabindex="-1" href="#" id="hide-gravatars">
+            <i class="icon-adjust"></i>
+            Hide Gravatars
+          </a>
+        </li>
+      {{/if}}
+
+      <li>
+        <a tabindex="-1" href="#" id="create-room">
+          <i class="icon-plus-sign"></i>
+          Create Room
+        </a>
+      </li>
+
+      {{#if messagesPresent}}
+        <li>
+          <a tabindex="-1" href="#" id="clear-room">
+            <i class="icon-trash"></i>
+            Clear Room
+          </a>
+        </li>
+      {{/if}}
+
+      <li class="disabled">
+        <a tabindex="-1" href="#">
+          <i class="icon-thumbs-up"></i>
+          Invite Someone
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+</template>

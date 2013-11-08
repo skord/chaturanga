@@ -1,7 +1,7 @@
-Template.view_options.gravatarsHidden = ->
+Template.options.gravatarsHidden = ->
   Meteor.user().profile.showGravatars == false
 
-Template.view_options.events
+Template.options.events
   'click a#options-toggle': (e) ->
     e.preventDefault()
     $('ul#options-menu').toggle()
