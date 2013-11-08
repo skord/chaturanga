@@ -50,3 +50,9 @@ Meteor.startup ->
     id = Rooms.insert({name: "Watercooler"})
     Rooms.insert({name: "Misc"})
     Meteor.call 'setAllLastRoomId', id
+
+Accounts.onCreateUser (options, user) ->
+  roomId = Rooms.findOne()._id
+  user.profile = {lastRoomId: roomId}
+  user
+
