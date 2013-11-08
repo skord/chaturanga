@@ -6,9 +6,11 @@ Template.view_options.events
     e.preventDefault()
     $('ul#options-menu').toggle()
 
-  'click #show-gravatars': ->
+  'click #show-gravatars': (e) ->
+    e.preventDefault()
     Meteor.users.update({_id: Meteor.userId()}, {$set:{'profile.showGravatars': true}})
 
-  'click #hide-gravatars': ->
+  'click #hide-gravatars': (e) ->
+    e.preventDefault()
     Meteor.users.update({_id: Meteor.userId()}, {$set:{'profile.showGravatars': false}})
 
