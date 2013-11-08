@@ -1,7 +1,10 @@
-Ability to set User as Owner
-Ability to CUD rooms
-Only allow Owners to clear the log
-Scope rooms by invitees / owner
-Add invites
-Private messages
-Infinite history via scrolling (http://stackoverflow.com/questions/15324350/how-to-make-meteor-reactive-on-sub-items-but-not-parent)
+Ideas:
+  Scope rooms by invitees / owner
+  Add invites
+  Private messages
+  Infinite history via scrolling (http://stackoverflow.com/questions/15324350/how-to-make-meteor-reactive-on-sub-items-but-not-parent)
+
+Bugs:
+  Creating and/or renaming a room doubles up the roster
+  Creating the default rooms -- who is the owner?
+

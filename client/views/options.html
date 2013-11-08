@@ -5,22 +5,6 @@
 
     <ul id="options-menu" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
 
-      {{#if gravatarsHidden}}
-        <li>
-          <a tabindex="-1" href="#" id="show-gravatars">
-            <i class="icon-adjust"></i>
-            Show Gravatars
-          </a>
-        </li>
-      {{else}}
-        <li>
-          <a tabindex="-1" href="#" id="hide-gravatars">
-            <i class="icon-adjust"></i>
-            Hide Gravatars
-          </a>
-        </li>
-      {{/if}}
-
       <li>
         <a tabindex="-1" href="#" id="create-room">
           <i class="icon-plus-sign"></i>
@@ -28,21 +12,51 @@
         </a>
       </li>
 
-      {{#if messagesPresent}}
+      <li class="divider"></li>
+
+      {{#if isOwner}}
+        <li class="disabled">
+          <a tabindex="-1" href="#">
+            <i class="icon-thumbs-up"></i>
+            Invite Someone
+          </a>
+        </li>
+
         <li>
-          <a tabindex="-1" href="#" id="clear-room">
+          <a tabindex="-1" href="#" id="delete-room">
             <i class="icon-trash"></i>
-            Clear Room
+            Delete This Room
+          </a>
+        </li>
+
+        {{#if messagesPresent}}
+          <li>
+            <a tabindex="-1" href="#" id="delete-messages">
+              <i class="icon-trash"></i>
+              Delete Messages
+            </a>
+          </li>
+        {{/if}}
+
+        <li class="divider"></li>
+      {{/if}}
+
+
+      {{#if gravatarsHidden}}
+        <li>
+          <a tabindex="-1" href="#" id="show-gravatars">
+            <i class="icon-adjust"></i>
+            Show Avatars
+          </a>
+        </li>
+      {{else}}
+        <li>
+          <a tabindex="-1" href="#" id="hide-gravatars">
+            <i class="icon-adjust"></i>
+            Hide Avatars
           </a>
         </li>
       {{/if}}
-
-      <li class="disabled">
-        <a tabindex="-1" href="#">
-          <i class="icon-thumbs-up"></i>
-          Invite Someone
-        </a>
-      </li>
 
     </ul>
   </div>

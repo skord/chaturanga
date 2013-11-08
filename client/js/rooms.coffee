@@ -4,6 +4,19 @@ Template.rooms.events
     roomId = $(e.target).data('id')
     Meteor.call 'addUserToRoster', roomId
 
+  'dblclick .nav-pills li': (e) ->
+    e.preventDefault()
+    a = $(e.target)
+    a.attr('contenteditable', true)
+
+  'blur .nav-pills li a': (e) ->
+    e.preventDefault()
+    a      = $(e.target)
+    roomId = a.data('id')
+    name   = a.text()
+    a.attr('contenteditable', false)
+    Rooms.update({_id: roomId}, {$set: {name: name}})
+
 Template.rooms.rooms = ->
   Rooms.find()
 

@@ -1,6 +1,9 @@
 <template name="main">
   <div id="top-right">
-    {{> options}}
+    {{#if currentUser}}
+      {{> options}}
+    {{/if}}
+
     {{loginButtons}}
   </div>
 
