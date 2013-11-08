@@ -11,3 +11,9 @@ Deps.autorun ->
     Meteor.setInterval ->
       Meteor.call 'keepalive', Meteor.userId()
     , 5000
+
+Meteor.startup ->
+  unless Rooms.findOne()
+    userId = Meteor.userId()
+    roomId = Rooms.insert({name: "Watercooler", ownerId: userId})
+    Meteor.users.update({_id: userId}, {$set:{'profile.lastRoomId': roomId}})

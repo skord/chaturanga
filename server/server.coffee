@@ -45,12 +45,6 @@ Meteor.methods
   keepalive: (userId) ->
     Rosters.update({userId: userId}, {$set: {lastSeen: (new Date()).getTime()}})
 
-Meteor.startup ->
-  unless Rooms.findOne()
-    id = Rooms.insert({name: "Watercooler"})
-    Rooms.insert({name: "Misc"})
-    Meteor.call 'setAllLastRoomId', id
-
 Accounts.onCreateUser (options, user) ->
   roomId = Rooms.findOne()._id
   user.profile = {lastRoomId: roomId, showGravatars: true}
