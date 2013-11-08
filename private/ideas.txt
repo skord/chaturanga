@@ -1,10 +1,11 @@
 Ideas:
-  Scope rooms by invitees / owner
   Add invites
-  Private messages
+  Scope rooms by invitees / owner
   Infinite history via scrolling (http://stackoverflow.com/questions/15324350/how-to-make-meteor-reactive-on-sub-items-but-not-parent)
 
 Bugs:
   Creating and/or renaming a room doubles up the roster
-  Creating the default rooms -- who is the owner?
+  Creating the default rooms -- who is the owner? Chicken / Egg
+  Don't allow blank room names
+  Make editing room names more evident
 
