@@ -1,7 +1,8 @@
-Template.message.events 'click a.delete': (e) =>
-  e.preventDefault()
-  messageId = $(e.target).data('id')
-  @Messages.remove({_id: messageId})
+Template.message.events
+  'click a.delete': (e) =>
+    e.preventDefault()
+    messageId = $(e.target).data('id')
+    @Messages.remove({_id: messageId})
 
 Template.message.showGravatar = ->
   Meteor.user().profile.showGravatars == true
