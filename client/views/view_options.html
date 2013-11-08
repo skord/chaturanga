@@ -1,0 +1,23 @@
+<template name="view_options">
+
+  <div id="options-area" class="dropdown">
+    <a href="#" id="options-toggle">Options</a>
+
+    <ul id="options-menu" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+
+      {{#if gravatarsHidden}}
+        <li><a tabindex="-1" href="#" id="show-gravatars">
+          <i class="icon-plus-sign"></i>
+          Show Gravatars
+        </a></li>
+      {{else}}
+        <li><a tabindex="-1" href="#" id="hide-gravatars">
+          <i class="icon-plus-sign"></i>
+          Hide Gravatars
+        </a></li>
+      {{/if}}
+
+    </ul>
+  </div>
+
+</template>

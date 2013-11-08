@@ -1,25 +1,6 @@
 <template name="controls">
 
   {{#if messagesPresent}}
-    <div class="btn-group">
-      <button class="btn" id="clear">
-        <i class="icon-trash icon-black"></i>
-        Clear Log
-      </button>
-
-      {{#if gravatarsHidden}}
-        <button class="btn" id="show-gravatars">
-          <i class="icon-adjust icon-black"></i>
-          Show Gravatars
-        </button>
-      {{else}}
-        <button class="btn" id="hide-gravatars">
-          <i class="icon-adjust icon-black"></i>
-          Hide Gravatars
-        </button>
-      {{/if}}
-    </div>
-
     <span id="count">{{count}}</span>
   {{/if}}
 
