@@ -53,6 +53,6 @@ Meteor.startup ->
 
 Accounts.onCreateUser (options, user) ->
   roomId = Rooms.findOne()._id
-  user.profile = {lastRoomId: roomId}
+  user.profile = {lastRoomId: roomId, showGravatars: true}
   user
 
