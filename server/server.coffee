@@ -1,11 +1,10 @@
 Meteor.publish "connections", (userId) ->
   Connections.find({userId: userId})
 
-Meteor.publish "rooms", (userId) ->
+Meteor.publish "rooms", (userId, email) ->
   Rooms.find({$or: [
     {ownerId: {$in: [null, userId]}},
-    {inviteeIds: {$in: [userId]}},
-    {memberIds: {$in: [userId]}}
+    {inviteeEmails: {$in: [email]}}
   ]}, {sort: "name"})
 
 Meteor.publish "messages", (roomId) ->

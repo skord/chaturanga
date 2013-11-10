@@ -49,8 +49,6 @@ Template.options.events
 
   'click #invite-someone': (e) ->
     e.preventDefault()
+    $('ul#options-menu').toggle()
     Session.set('inviteSliderVisible', true)
-    ownerId   = Meteor.userId()
-    inviteeId = "ASDF"
-    roomId    = Meteor.user().profile.lastRoomId
-    Rooms.update({_id: roomId}, {$push: {inviteeIds: inviteeId}})
+
