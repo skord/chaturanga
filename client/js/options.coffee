@@ -49,6 +49,7 @@ Template.options.events
 
   'click #invite-someone': (e) ->
     e.preventDefault()
+    Session.set('inviteSliderVisible', true)
     ownerId   = Meteor.userId()
     inviteeId = "ASDF"
     roomId    = Meteor.user().profile.lastRoomId
