@@ -1,17 +1,11 @@
 Template.rooms.events
   'click .nav-pills li': (e) ->
     e.preventDefault()
-    roomId = $(e.target).data('id')
-    Meteor.call 'addUserToRoster', roomId
-
-  'dblclick .nav-pills li': (e) ->
-    e.preventDefault()
     a      = $(e.target)
     roomId = a.data('id')
-    room   = Rooms.findOne({_id: roomId})
 
-    if room.ownerId is Meteor.userId()
-      a.attr('contenteditable', true)
+    unless a.attr("contenteditable")
+      Meteor.call 'addUserToRoster', roomId
 
   'keypress .nav-pills li a': (e) ->
     if e.keyCode is 13

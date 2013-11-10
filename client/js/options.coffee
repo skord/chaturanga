@@ -28,6 +28,12 @@ Template.options.events
     e.preventDefault()
     Rooms.insert({name: "New Room", ownerId: Meteor.userId()})
 
+  'click #rename-room': (e) ->
+    e.preventDefault()
+    roomId = Meteor.user().profile.lastRoomId
+    a = $("a[data-id='#{roomId}']")
+    a.attr('contenteditable', true)
+
   'click #delete-messages': (e) ->
     e.preventDefault()
     roomId = Meteor.user().profile.lastRoomId

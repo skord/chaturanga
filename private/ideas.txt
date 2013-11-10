@@ -3,6 +3,4 @@ Ideas:
   Infinite history via scrolling (http://stackoverflow.com/questions/15324350/how-to-make-meteor-reactive-on-sub-items-but-not-parent)
 
 Bugs:
-  Editing room name doesn't work (flashes red)
-  Creating and/or renaming a room doubles up the roster
   Make editing room names more evident
