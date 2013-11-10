@@ -1,6 +1,6 @@
 Ideas:
-  Add invites
   Infinite history via scrolling (http://stackoverflow.com/questions/15324350/how-to-make-meteor-reactive-on-sub-items-but-not-parent)
 
 Bugs:
   Make editing room names more evident
+  Starting fresh errors

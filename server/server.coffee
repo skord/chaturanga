@@ -22,6 +22,11 @@ Meteor.setInterval ->
   Meteor.call 'removeOldConnections'
 , 10000
 
+Accounts.onCreateUser (options, user) ->
+  roomId = Rooms.findOne()._id
+  user.profile = {lastRoomId: roomId, showGravatars: true}
+  user
+
 Meteor.methods
   removeOldConnections: ->
     now         = new Date().getTime()
@@ -59,8 +64,15 @@ Meteor.methods
   keepalive: (userId) ->
     Connections.update({userId: userId}, {$set: {lastSeen: (new Date()).getTime()}})
 
-Accounts.onCreateUser (options, user) ->
-  roomId = Rooms.findOne()._id
-  user.profile = {lastRoomId: roomId, showGravatars: true}
-  user
+  sendInvite: (to) ->
+    check(to, String)
+    this.unblock()
+    Email.send({
+      to: to,
+      from: "system@chaturan.ga",
+      subject: "You've been invited!",
+      text: "You've been invited to Chaturan.ga!
+        It's a place to quickly chat with whoever.
+        It's free. Just create an account on http://chaturan.ga to start!"
+    })
 

@@ -13,6 +13,9 @@ Template.invite.events
       Session.set('inviteSliderVisible', false)
       Rooms.update({_id: roomId}, {$push: {inviteeEmails: {$each: emails}}})
 
+      for email in emails
+        Meteor.call 'sendInvite', email
+
   'click #close-invites': (e) ->
     $('textarea#invitee-addresses').val('')
     Session.set('inviteSliderVisible', false)
