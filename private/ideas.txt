@@ -6,3 +6,13 @@ Ideas:
 Bugs:
   Creating and/or renaming a room doubles up the roster
   Make editing room names more evident
+
+Refactorings:
+  Stuff invites / owner / members of a room into the Room object
+
+  room:
+    _id:        id
+    ownerId:    id
+    inviteeIds: [ids]
+    memberIds:  [ids]
+    rosterIds:  [ids]

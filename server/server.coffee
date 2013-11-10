@@ -1,5 +1,9 @@
-Meteor.publish "rooms", ->
-  Rooms.find({}, {sort: "name"})
+Meteor.publish "rooms", (userId) ->
+  Rooms.find({$or: [
+    {ownerId: {$in: [null, userId]}},
+    {inviteeIds: {$in: [userId]}},
+    {memberIds: {$in: [userId]}}
+  ]}, {sort: "name"})
 
 Meteor.publish "rosters", (roomId) ->
   check roomId, String

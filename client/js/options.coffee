@@ -1,9 +1,15 @@
 Template.options.gravatarsHidden = ->
-  Meteor.user().profile.showGravatars == false
+  Meteor.user().profile.showGravatars is false
 
 Template.options.messagesPresent = ->
   roomId = Meteor.user().profile.lastRoomId
   @Messages.find({roomId: roomId}).count() > 0
+
+Template.options.helpers
+  isOwner: ->
+    roomId = Meteor.user().profile.lastRoomId
+    room   = Rooms.findOne({_id: roomId})
+    room.ownerId && room.ownerId is Meteor.userId()
 
 Template.options.events
   'click a#options-toggle': (e) ->
@@ -35,9 +41,9 @@ Template.options.events
     newLastRoomId = Rooms.findOne()._id
     Meteor.users.update({_id: Meteor.userId()}, {$set:{'profile.lastRoomId': newLastRoomId}})
 
-Template.options.helpers
-  isOwner: ->
-    roomId = Meteor.user().profile.lastRoomId
-    room   = Rooms.findOne({_id: roomId})
-    room.ownerId is Meteor.userId()
-
+  'click #invite-someone': (e) ->
+    e.preventDefault()
+    ownerId   = Meteor.userId()
+    inviteeId = "ASDF"
+    roomId    = Meteor.user().profile.lastRoomId
+    Rooms.update({_id: roomId}, {$push: {inviteeIds: inviteeId}})
