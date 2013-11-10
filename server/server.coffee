@@ -23,7 +23,11 @@ Meteor.setInterval ->
 , 10000
 
 Accounts.onCreateUser (options, user) ->
-  roomId = Rooms.findOne()._id
+  if Rooms.findOne()
+    roomId = Rooms.findOne()._id
+  else
+    roomId = Rooms.insert({name: "Watercooler", ownerId: user._id})
+
   user.profile = {lastRoomId: roomId, showGravatars: true}
   user
 
