@@ -1,3 +1,3 @@
 Template.roster.list = ->
-  emails = @Rosters.find().map (roster) -> roster.email
-  emails.join(', ')[0..-1]
+  roomId = Meteor.user().profile.lastRoomId
+  Rooms.findOne({_id: roomId}).roster.join(', ')

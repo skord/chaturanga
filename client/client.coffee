@@ -1,9 +1,9 @@
 Deps.autorun ->
   if Meteor.user()
     roomId = Meteor.user().profile.lastRoomId
+    Meteor.subscribe "connections", Meteor.userId()
     Meteor.subscribe "rooms", Meteor.userId()
     Meteor.subscribe "messages", roomId
-    Meteor.subscribe "rosters", roomId
     Meteor.subscribe "last_in_room", roomId, Meteor.userId()
     Meteor.call 'addUserToRoster', roomId
 

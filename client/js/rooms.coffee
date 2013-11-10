@@ -6,8 +6,12 @@ Template.rooms.events
 
   'dblclick .nav-pills li': (e) ->
     e.preventDefault()
-    a = $(e.target)
-    a.attr('contenteditable', true)
+    a      = $(e.target)
+    roomId = a.data('id')
+    room   = Rooms.findOne({_id: roomId})
+
+    if room.ownerId is Meteor.userId()
+      a.attr('contenteditable', true)
 
   'keypress .nav-pills li a': (e) ->
     if e.keyCode is 13

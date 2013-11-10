@@ -1,13 +1,12 @@
+Meteor.publish "connections", (userId) ->
+  Connections.find({userId: userId})
+
 Meteor.publish "rooms", (userId) ->
   Rooms.find({$or: [
     {ownerId: {$in: [null, userId]}},
     {inviteeIds: {$in: [userId]}},
     {memberIds: {$in: [userId]}}
   ]}, {sort: "name"})
-
-Meteor.publish "rosters", (roomId) ->
-  check roomId, String
-  Rosters.find({roomId: roomId}, {sort: "email"})
 
 Meteor.publish "messages", (roomId) ->
   check roomId, String
@@ -21,11 +20,20 @@ Meteor.users.allow
   update: (userId, docs, fields, modifier) -> true
 
 Meteor.setInterval ->
-  now = new Date().getTime()
-  Rosters.remove({lastSeen: {$lt: (now - 10 * 1000)}})
+  Meteor.call 'removeOldConnections'
 , 10000
 
 Meteor.methods
+  removeOldConnections: ->
+    now         = new Date().getTime()
+    connections = Connections.find({lastSeen: {$lt: (now - 10 * 1000)}})
+
+    connections.forEach (conn) ->
+      user   = Meteor.users.findOne({_id: conn.userId})
+      email  = user.emails[0].address
+      roomId = user.profile.lastRoomId
+      Rooms.update({_id: roomId}, {$pull: {roster: email}})
+
   removeAllMessages: (roomId) ->
     Messages.remove({roomId: roomId})
 
@@ -43,11 +51,14 @@ Meteor.methods
 
     Meteor.users.update({_id: userId}, {$set:{'profile.lastRoomId': roomId}})
 
-    Rosters.remove({userId: userId})
-    Rosters.insert({roomId: roomId, userId: userId, email: email, lastSeen: time})
+    Rooms.update({_id: prevRoomId}, {$pull: {roster: email}})
+    Rooms.update({_id: roomId}, {$push: {roster: email}})
+
+    Connections.remove({userId: userId})
+    Connections.insert({userId: userId, lastSeen: (new Date()).getTime()})
 
   keepalive: (userId) ->
-    Rosters.update({userId: userId}, {$set: {lastSeen: (new Date()).getTime()}})
+    Connections.update({userId: userId}, {$set: {lastSeen: (new Date()).getTime()}})
 
 Accounts.onCreateUser (options, user) ->
   roomId = Rooms.findOne()._id
