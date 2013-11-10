@@ -1,6 +1,15 @@
 <template name="roster">
-  <p id="roster">
-    <strong>Currently Viewing:</strong>
-    {{list}}
-  </p>
+  <div id="room-lists">
+    <p>
+      <strong>Currently Viewing:</strong>
+      {{list}}
+    </p>
+
+    {{#if hasInvitees}}
+      <p>
+        <strong>Invitees:</strong>
+        {{invitees}}
+      </p>
+    {{/if}}
+  </div>
 </template>
