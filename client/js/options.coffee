@@ -9,11 +9,7 @@ Template.options.helpers
   isOwner: ->
     roomId = Meteor.user().profile.lastRoomId
     room   = Rooms.findOne({_id: roomId})
-
-    if room
-      room.ownerId is not null && room.ownerId is Meteor.userId()
-    else
-      false
+    room.ownerId is Meteor.userId()
 
 Template.options.events
   'click a#options-toggle': (e) ->
