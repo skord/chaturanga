@@ -11,6 +11,12 @@ Template.options.helpers
     room   = Rooms.findOne({_id: roomId})
     room.ownerId is Meteor.userId()
 
+  canDeleteRoom: ->
+    roomId = Meteor.user().profile.lastRoomId
+    room   = Rooms.findOne({_id: roomId})
+    rooms  = Rooms.find().count()
+    rooms > 1 and room.ownerId is Meteor.userId()
+
 Template.options.events
   'click a#options-toggle': (e) ->
     e.preventDefault()

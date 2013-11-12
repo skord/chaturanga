@@ -29,12 +29,14 @@
           </a>
         </li>
 
-        <li>
-          <a tabindex="-1" href="#" id="delete-room">
-            <i class="icon-trash"></i>
-            Delete This Room
-          </a>
-        </li>
+        {{#if canDeleteRoom}}
+          <li>
+            <a tabindex="-1" href="#" id="delete-room">
+              <i class="icon-trash"></i>
+              Delete This Room
+            </a>
+          </li>
+        {{/if}}
 
         {{#if messagesPresent}}
           <li>

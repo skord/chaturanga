@@ -2,5 +2,4 @@ Ideas:
   Infinite history via scrolling (http://stackoverflow.com/questions/15324350/how-to-make-meteor-reactive-on-sub-items-but-not-parent)
 
 Bugs:
-  Can delete last room, site crashes.
   Make editing room names more evident
