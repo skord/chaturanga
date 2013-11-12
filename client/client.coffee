@@ -1,5 +1,8 @@
+# Sign in fails with Deps.autorun (doesn't have room)
+# Create account fails without Deps.autorun (doesn't have user profile)
+
 Deps.autorun ->
-  if Meteor.userId()
+  if Meteor.user()
     user   = Meteor.user()
     userId = Meteor.userId()
     email  = user.emails[0].address
